@@ -2,9 +2,9 @@
 
 A tool to discharge batteries using TekPower DC load meter.. BK/ITECH version is coming soon.
 
-This source only supports windows but it should be trivial to change out the code to open the serial port, the remainder of the code will work on Linux and OSX. It should even be possible to run this on an embedded controller for a stand alone testing, however do note the instrument output true RS232 and not TTL levels. 
+This source only supports windows but it should be trivial to change out the code to open the serial port, the remainder of the code will work on Linux and OSX. It should even be possible to run this on an embedded controller for a stand alone testing, the serial on the back on the instrument is TTL so it would interface directly to a micro (maybe need to level shift).
 
-***Please use an isolated serial port for the your PC be it a proper serial port or a serial to usb converter. We don't want a 30A load accidently grounding through you PC motherboard***
+***Please use an isolated TTL serial converter for the your PC. You don't want a 30A load accidently grounding through you PC motherboard***
 
 By default data is logged to the terminal, in the following format:
 
