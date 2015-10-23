@@ -1,6 +1,6 @@
 # discharge
 
-A tool to discharge batteries using TekPower DC load (Should also work with BK DC load meters). 
+A tool to discharge batteries using TekPower DC load meter.. BK/ITECH version is coming soon.
 
 This source only supports windows but it should be trivial to change out the code to open the serial port, the remainder of the code will work on Linux and OSX. It should even be possible to run this on an embedded controller for a stand alone testing, however do note the instrument output true RS232 and not TTL levels. 
 
