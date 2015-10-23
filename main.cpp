@@ -207,8 +207,13 @@ void ParseCommandLine(int argc, char* argv[])
       }
       else if (_stricmp(argv[arg],"-load")==0)
       {
-         arg++;
-         test_load = (uint32_t)(1000.0f*atof( argv[arg] ));
+         float t = (float)atof( argv[arg] );
+         if (t<0)
+         {
+           printf("Invalid load\n");
+           t=1.0f;
+         }
+         test_load = (uint32_t)(1000.0f*t);
       }
       else if (_stricmp(argv[arg],"-CC")==0)
       {
@@ -231,6 +236,17 @@ void ParseCommandLine(int argc, char* argv[])
            printf("Unknown waveform\n");
            test_wave = 0;
          }
+      }
+      else if (_stricmp(argv[arg],"-waveform_period")==0)
+      {
+         arg++;
+         float t = (float)atof( argv[arg] );
+         if (t<0)
+         {
+           printf("Invalid waveform period - default 60 seconds\n");
+           t=60.0f;
+         }
+         wave_period = t;
       }
       else if (_stricmp(argv[arg],"-current_limit")==0)
       {
@@ -422,7 +438,7 @@ int main(int argc, char* argv[])
 
      printf("%.4f sec, %.3fV, %.3fA, %.3fW - [%.3f AHr, %.3f WHr], 0x%02x\n", elapsed_time, volts, current,computed_power, capacity,watthour,status[17]);
      if (csv)
-       fprintf(csv,"%.3f, %.3f, %.3f, %.3f, %.3f, %.3f, 0x%02x\n", elapsed_time, volts, current,power, capacity,watthour,status[17]);
+       fprintf(csv,"%.3f, %.3f, %.3f, %.3f, %.3f, %.3f, 0x%02x\n", elapsed_time, volts, current,computed_power, capacity,watthour,status[17]);
 
      if (elapsed_time>3.0f)
      {
