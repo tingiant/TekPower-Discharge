@@ -9,9 +9,13 @@ This source only supports windows but it should be trivial to change out the cod
 By default data is logged to the terminal, in the following format:
 
 TIME         VOLTAGE   CURRENT   POWER     AMP/HOUR   WATT/HOUR   STATUS 
+
 16.2870 sec, 0.985V,   0.997A,   0.982W - [0.004 AHr, 0.004 WHr], 0x03
+
 17.2850 sec, 0.985V,   0.997A,   0.982W - [0.005 AHr, 0.004 WHr], 0x03
+
 18.2990 sec, 0.985V,   0.997A,   0.982W - [0.005 AHr, 0.005 WHr], 0x03
+
 19.2970 sec, 0.983V,   0.997A,   0.980W - [0.005 AHr, 0.005 WHr], 0x03
 
 The power column is computed by the software because the instrument only reports power to a resolution of 100mW (0.1Watts). This is not enough precision to compute a decent figure A/Hr and W/Hr, voltage and current are reported much more accurately in milliamps and millivolts so computed power is much more accurate.
